@@ -1,0 +1,13 @@
+let count = sessionStorage.getItem('counter');
+
+if (count === null) {
+    count = 0;
+} else {
+    count = parseInt(count) + 1;
+}
+
+sessionStorage.setItem('counter', count);
+
+const display = document.createElement('h1');
+display.textContent = 'Page Reload Count: ' + count;
+document.body.appendChild(display);
