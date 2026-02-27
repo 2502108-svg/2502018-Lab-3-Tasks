@@ -1,0 +1,24 @@
+const input = document.createElement('input');
+input.type = 'text';
+input.placeholder = 'Type a message...';
+
+const button = document.createElement('button');
+button.textContent = 'Send';
+
+document.body.appendChild(input);
+document.body.appendChild(button);
+
+const socket = new WebSocket('wss://echo.websocket.org');
+
+socket.addEventListener('open', () => {
+    console.log('Connected to server');
+});
+
+button.addEventListener('click', () => {
+    const message = input.value;
+    socket.send(message);
+});
+
+socket.addEventListener('message', (event) => {
+    console.log('Message from server: ' + event.data);
+});
