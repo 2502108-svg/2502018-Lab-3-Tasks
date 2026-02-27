@@ -1,0 +1,26 @@
+const getProductIds = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve([101, 102, 103]);
+        }, 1000);
+    });
+};
+
+const getProductDetails = (productId) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ id: productId, name: "Sample Product", price: 50 });
+        }, 1000);
+    });
+};
+
+getProductIds()
+    .then((ids) => {
+        return getProductDetails(ids[0]);
+    })
+    .then((details) => {
+        console.log("Product Details:", details);
+    })
+    .catch((error) => {
+        console.log("An error occurred: " + error);
+    });
