@@ -1,0 +1,12 @@
+function sayHello(name, callback) {
+    setTimeout(function() {
+        const message = "Hello, " + name;
+        callback(message);
+    }, 3000);
+}
+
+function displayMessage(message) {
+    console.log(message);
+}
+
+sayHello("Ayesha", displayMessage);
