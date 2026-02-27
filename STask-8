@@ -1,0 +1,12 @@
+const buffer = new ArrayBuffer(16);
+const view = new Uint8Array(buffer);
+
+for (let i = 0; i < view.length; i++) {
+    view[i] = i + 65; 
+}
+
+const decoder = new TextDecoder();
+const decodedString = decoder.decode(view);
+
+console.log("Binary Data (Uint8Array):", view);
+console.log("Decoded String:", decodedString);
