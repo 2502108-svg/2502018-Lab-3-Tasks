@@ -1,0 +1,27 @@
+const login = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ userId: 123 });
+        }, 1000);
+    });
+};
+
+const getProfile = (userId) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ name: "Ahmad", status: "Active" });
+        }, 1000);
+    });
+};
+
+async function getUserData() {
+    try {
+        const user = await login();
+        const profile = await getProfile(user.userId);
+        console.log(profile);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+}
+
+getUserData();
